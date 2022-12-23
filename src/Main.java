@@ -1,4 +1,9 @@
+import javax.management.StringValueExp;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
+    public static Map<String, Integer> map = new HashMap<>();
     public static void main(String[] args) {
         TelephoneDirectory td = new TelephoneDirectory();
         td.add("Начальник", "89327563809");
@@ -22,5 +27,20 @@ public class Main {
         td.add("Прокурор", "89327563863");
         td.add("Мафия", "89327563275");
         td.print();
+
+        for (int i=0; i < 10; i++){
+            map.put(String.valueOf(i), i);
+        }
+        System.out.println(map);
+        tryPut("10",10);
+        System.out.println(map);
+        tryPut("10",11);
+        System.out.println(map);
+    }
+    private static void tryPut(String key, int value){
+        if (map.containsKey(key) && map.get(key).equals(value)){
+            throw new IllegalArgumentException("Такая запись уже есть");
+        }
+        map.put(key, value);
     }
 }
