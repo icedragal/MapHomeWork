@@ -36,7 +36,7 @@ public class Main {
         System.out.println(map);
 
         Random random = new Random();
-        Map<String, List<Integer>> map2 = new HashMap<>();
+        Map<String, List<Integer>> mapTask2_1 = new HashMap<>();
         int mapSize = 5;
         int listSize = 3;
         for (int i = 0; i < mapSize; i++) {
@@ -44,12 +44,12 @@ public class Main {
             for (int j = 0; j < listSize; j++) {
                 numbers.add(random.nextInt(1000));
             }
-            map2.put(String.valueOf(i), numbers);
+            mapTask2_1.put(String.valueOf(i), numbers);
         }
-        System.out.println(map2);
+        System.out.println(mapTask2_1);
 
         Map<String, Integer> transformMap = new HashMap<>();
-        for (Map.Entry<String, List<Integer>> entry: map2.entrySet()){
+        for (Map.Entry<String, List<Integer>> entry: mapTask2_1.entrySet()){
             int sum = 0;
             List<Integer> numbers = entry.getValue();
             for (int number : numbers){
@@ -58,6 +58,19 @@ public class Main {
             transformMap.put(entry.getKey(), sum);
         }
             System.out.println(transformMap);
+
+        Map<Integer, String> mapTask2_2 = new LinkedHashMap<>();
+        mapTask2_2.put(3, "30");
+        mapTask2_2.put(33, "31");
+        mapTask2_2.put(45, "32");
+        mapTask2_2.put(-3, "33");
+        mapTask2_2.put(563, "34");
+        mapTask2_2.put(123, "35");
+        mapTask2_2.put(783, "36");
+        mapTask2_2.put(-983, "37");
+        mapTask2_2.put(1233, "38");
+        mapTask2_2.put(333, "39");
+        System.out.println(mapTask2_2);
     }
     private static void tryPut(String key, int value){
         if (map.containsKey(key) && map.get(key).equals(value)){
