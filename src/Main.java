@@ -1,6 +1,4 @@
-import javax.management.StringValueExp;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static Map<String, Integer> map = new HashMap<>();
@@ -36,6 +34,30 @@ public class Main {
         System.out.println(map);
         tryPut("10",11);
         System.out.println(map);
+
+        Random random = new Random();
+        Map<String, List<Integer>> map2 = new HashMap<>();
+        int mapSize = 5;
+        int listSize = 3;
+        for (int i = 0; i < mapSize; i++) {
+            List<Integer> numbers = new ArrayList<>(listSize);
+            for (int j = 0; j < listSize; j++) {
+                numbers.add(random.nextInt(1000));
+            }
+            map2.put(String.valueOf(i), numbers);
+        }
+        System.out.println(map2);
+
+        Map<String, Integer> transformMap = new HashMap<>();
+        for (Map.Entry<String, List<Integer>> entry: map2.entrySet()){
+            int sum = 0;
+            List<Integer> numbers = entry.getValue();
+            for (int number : numbers){
+                sum += number;
+            }
+            transformMap.put(entry.getKey(), sum);
+        }
+            System.out.println(transformMap);
     }
     private static void tryPut(String key, int value){
         if (map.containsKey(key) && map.get(key).equals(value)){
